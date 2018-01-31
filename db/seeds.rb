@@ -1,5 +1,16 @@
 require 'random_data'
 
+
+#Create Sponsored_Posts
+10.times do
+    SponsoredPost.create!(
+        title: RandomData.random_sentence,
+        body: RandomData.random_paragraph,
+        price: 99
+    )
+end
+sponsored_posts = SponsoredPost.all
+
 #Create Topics
 15.times do
     Topic.create!(
@@ -42,6 +53,7 @@ Post.find_or_create_by(title: "example title", body: "example body")
 puts "#{Post.count}"
 
 puts "Seed finished"
+puts "#{SponsoredPost.count} sponsored posts created"
 puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"

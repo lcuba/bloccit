@@ -6,6 +6,7 @@ class TopicsController < ApplicationController
     
     def show
         @topic = Topic.find(params[:id])
+        @sponsored_post = SponsoredPost.new
     end
     
     def new
