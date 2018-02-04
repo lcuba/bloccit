@@ -11,12 +11,13 @@
                 <%= f.label :password %>
                 <%= f.password_field :password, class: 'form-control', placeholder: 'Enter password' %>
             </div>
-            <div class='form-group'>
-                <%= f.label :remember_me, class: 'checkbox' do %> Remember Me
-                    <%= f.check_box :remember_me, class: 'remember-checkbox' %>
+            <div class='form-check'>
+                <%= f.check_box :remember_me, class: 'form-check-input' %>
+                <%= f.label :remember_me, class: 'form-check-label' do %> 
+                Remember Me
                 <% end %>
-                <%= f.submit "Sign in", class: 'btn btn-success' %>
             </div>
+            <%= f.submit "Sign in", class: 'btn btn-success' %>
         <% end %>
     </div>
 </div>
