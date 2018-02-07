@@ -22,6 +22,8 @@ class UsersController < ApplicationController
     def show
        @user = User.find(params[:id]) 
        @posts = @user.posts.visible_to(current_user)
+       # third portion of the assignment, but I'm not sure I'm going in the right direction with the following line
+       @favorites = Favorites.find(params[:post_id])
     end
     end
 end

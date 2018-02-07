@@ -18,9 +18,27 @@
      </div>
    </div>
  </div>
+ <!-- I know this is an ugly logic block in the middle of this view, but I was unsure how to implement this into a helper
+ method or even a view-->
+ <% if @user.posts.any? %>
+     <h2>Posts</h2>
+     <%= render @user.posts %>
+ <% else %>
+     <h2><%= @user.name %> has not submitted any posts yet.</h2>
+ <% end %>
+ <% if @user.comments.any? %>
+     <h2>Comments</h2>
+     <%= render @user.comments %>
+ <% else %>
+     <h2><%= @user.name %> has not submitted any comments yet.</h2>
+ <% end %>
  
- <h2>Posts</h2>
- <%= render @user.posts %>
+ <h2>Favorited Posts</h2>
+     <%= @favorites.each do |favorites| %>
+         <!-- unsure of how to proceed or if this is the right approach to start rendering favorited posts -->
+     <% end %>
+
  
- <h2>Comments</h2>
- <%= render @user.comments %>
+     
+ 
+ 
