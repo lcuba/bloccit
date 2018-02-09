@@ -18,25 +18,40 @@
      </div>
    </div>
  </div>
- <!-- I know this is an ugly logic block in the middle of this view, but I was unsure how to implement this into a helper
- method or even a view-->
- <% if @user.posts.any? %>
-     <h2>Posts</h2>
+ <h2>Posts</h2>
+ <% if posts?(@user) %>
      <%= render @user.posts %>
  <% else %>
-     <h2><%= @user.name %> has not submitted any posts yet.</h2>
+     <h4><%= @user.name %> has not submitted any posts yet.</h4>
  <% end %>
- <% if @user.comments.any? %>
-     <h2>Comments</h2>
+ <h2>Comments</h2>
+ <% if comments?(@user) %>
      <%= render @user.comments %>
  <% else %>
-     <h2><%= @user.name %> has not submitted any comments yet.</h2>
+     <h4><%= @user.name %> has not submitted any comments yet.</h4>
  <% end %>
  
  <h2>Favorited Posts</h2>
-     <%= @favorites.each do |favorites| %>
-         <!-- unsure of how to proceed or if this is the right approach to start rendering favorited posts -->
-     <% end %>
+ <% if favorites?(@user) %>
+    <div class='row'>
+        <div class='col-md-8'>
+            <% @user.favorites.each do |favorite| %>
+                <div class='media'>
+                    <div class="media-body">
+                        <h4 class="media-heading"><%= favorite.post.title %></h4> 
+                        <% avatar_url = @user.avatar_url(48) %>
+                        <%= image_tag avatar_url, class: 'pull-left media-object' %>
+                        <small>Vote Score: <%= favorite.post.votes.count %></small>
+                        <small>Comments: <%= favorite.post.comments.count %><small>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <% else %>
+        <h4><%= @user.name %> has not favorited any posts.</h4>
+    <% end %>
+    
 
  
      
