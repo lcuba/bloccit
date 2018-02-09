@@ -41,8 +41,8 @@
                         <h4 class="media-heading"><%= favorite.post.title %></h4> 
                         <% avatar_url = @user.avatar_url(48) %>
                         <%= image_tag avatar_url, class: 'pull-left media-object' %>
-                        <small>Vote Score: <%= favorite.post.votes.count %></small>
-                        <small>Comments: <%= favorite.post.comments.count %><small>
+                        <h5>Vote Score: <%= favorite.post.votes.count %></h5>
+                        <h5>Comments: <%= favorite.post.comments.count %></h5>
                     </div>
                 </div>
             <% end %>
