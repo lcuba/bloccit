@@ -1,15 +1,7 @@
 require 'random_data'
 
 
-#Create Sponsored_Posts
-10.times do
-    SponsoredPost.create!(
-        title: RandomData.random_sentence,
-        body: RandomData.random_paragraph,
-        price: 99
-    )
-end
-sponsored_posts = SponsoredPost.all
+
 
 #Create Topics
 15.times do
@@ -19,6 +11,16 @@ sponsored_posts = SponsoredPost.all
     )
 end
 topics = Topic.all
+
+#Create Sponsored_Posts
+10.times do
+    SponsoredPost.create!(
+        topic: topics.sample,
+        title: RandomData.random_sentence,
+        body: RandomData.random_paragraph,
+        price: 99
+    )
+end
 
 #Create posts
 50.times do
