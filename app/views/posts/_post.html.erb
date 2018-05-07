@@ -5,16 +5,10 @@
             <!-- these changes right here where I add an avatar display to every call of the post partial was the start
             of a quick and dirty solution for the third part of the assignment, but I'm unsure of how to proceed with the
             third part -->
-            <% avatar_url = post.user.avatar_url(48) %>
-            <% if avatar_url %>
-                <div class="media-left">
-                   <%= image_tag avatar_url, class: 'media-object' %>
-                 </div>
-            <% end %>
             <%= link_to post.title, topic_post_path(post.topic, post) %>
         </h4>
         <small>
-            submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %> <br />
+            submitted <%= time_ago_in_words(post.created_at) %> ago <%= post.user %> <br />
             <%= post.comments.count %> Comments
         </small>
     </div>
